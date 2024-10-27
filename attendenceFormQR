@@ -1,3 +1,5 @@
+//only if doing directly from the form 
+
 function generateQRCode() {
 
   const formUrl = FormApp.getActiveForm().getEditUrl(); 
