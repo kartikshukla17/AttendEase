@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Attendance Form Generator</h1>
+  <button onclick="createForm()">Generate Attendance Form & QR Code</button>
+  
+  <div id="output"></div>
+  
+  <script>
+    function createForm() {
+      google.script.run.withSuccessHandler(displayResult).createAttendanceForm();
+    }
+
+    function displayResult(data) {
+      const output = document.getElementById('output');
+      output.innerHTML = `<p><strong>Form URL:</strong> <a href="${data.formUrl}" target="_blank">${data.formUrl}</a></p>
+                          <p><strong>QR Code:</strong></p>
+                          <img src="${data.qrUrl}" alt="QR Code">`;
+    }
+  </script>
+</body>
+</html>
